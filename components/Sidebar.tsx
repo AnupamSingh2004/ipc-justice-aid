@@ -76,8 +76,8 @@ export function Sidebar() {
     >
       <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
         <div className={cn("flex items-center gap-3", !expanded && "hidden")}>
-          <Gavel className="h-6 w-6 text-justice-gold" />
-          <h1 className="font-bold text-lg">{t("app.name")}</h1>
+          <Gavel className="h-6 w-6 text-yellow-600" />
+          <h1 className="font-bold text-black dark:text-white text-lg">{t("app.name")}</h1>
         </div>
         <Button 
           variant="ghost" 

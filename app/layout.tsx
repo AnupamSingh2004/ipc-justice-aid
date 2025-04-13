@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/lib/theme/ThemeContent";
 import { LanguageProvider } from "@/lib/i18n/LanguageContext";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { Toaster } from "@/components/ui/toaster";
+import { AuthProvider } from "@/contexts/AuthContext";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,10 +34,12 @@ export default function RootLayout({
       >
         <ThemeProvider>
           <LanguageProvider>
-            <TooltipProvider>
-              {children}
-              <Toaster />
-            </TooltipProvider>
+            <AuthProvider> {/* Add AuthProvider here */}
+              <TooltipProvider>
+                {children}
+                <Toaster />
+              </TooltipProvider>
+            </AuthProvider>
           </LanguageProvider>
         </ThemeProvider>
       </body>
