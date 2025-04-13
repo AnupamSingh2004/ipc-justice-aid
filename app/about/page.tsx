@@ -11,6 +11,10 @@ const About = () => {
       
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
+        <div className="bg-ellipse-1"></div>
+      <div className="bg-ellipse-2"></div>
+      <div className="bg-ellipse-3"></div>
+      
         
         <div className="flex-1 overflow-y-auto">
           <div className="container px-6 py-8 max-w-4xl mx-auto">

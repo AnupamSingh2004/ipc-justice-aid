@@ -21,6 +21,10 @@ const Results = () => {
       
       <div className="flex-1 flex flex-col overflow-hidden">
         <Navbar />
+        <div className="bg-ellipse-1"></div>
+      <div className="bg-ellipse-2"></div>
+      <div className="bg-ellipse-3"></div>
+      
         
         <div className={cn(
           "flex-1 overflow-y-auto",
