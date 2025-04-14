@@ -1,6 +1,5 @@
-
 import { FileBarChart, ShieldCheck, Scale, LucideIcon } from "lucide-react";
-import { useSearchParams } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { toast } from "@/components/ui/use-toast";
@@ -10,6 +9,12 @@ interface PredictionPointProps {
   title: string;
   description: string;
   className?: string;
+}
+
+// Update the interface to accept result directly
+interface CasePredictionProps {
+  query: string;
+  result?: any;
 }
 
 const PredictionPoint = ({ icon: Icon, title, description, className }: PredictionPointProps) => (
@@ -24,9 +29,39 @@ const PredictionPoint = ({ icon: Icon, title, description, className }: Predicti
   </div>
 );
 
-export function CasePrediction() {
-  const [searchParams] = useSearchParams();
-  const query = searchParams.get("q") || "";
+export function CasePrediction({ query, result }: CasePredictionProps) {
+  // If result is provided directly, use it instead of making an API call
+  const [severity, setSeverity] = useState<number>(0);
+  const [analyzed, setAnalyzed] = useState(false);
+  
+  useEffect(() => {
+    if (result) {
+      calculateSeverity(result);
+      setAnalyzed(true);
+    }
+  }, [result]);
+  
+  const calculateSeverity = (data: any) => {
+    // Calculate severity based on number of penal codes mentioned 
+    // and their severity (e.g., if murder or rape is mentioned, higher severity)
+    const penalCodes = data.penalCodes.toLowerCase();
+    let calculatedSeverity = 30; // Base severity
+    
+    // Check for serious crimes
+    if (penalCodes.includes("murder") || penalCodes.includes("homicide") || 
+        penalCodes.includes("section 302") || penalCodes.includes("section 304")) {
+      calculatedSeverity += 40;
+    } else if (penalCodes.includes("rape") || penalCodes.includes("sexual assault") ||
+        penalCodes.includes("section 376") || penalCodes.includes("section 354")) {
+      calculatedSeverity += 35;
+    } else if (penalCodes.includes("theft") || penalCodes.includes("robbery") ||
+        penalCodes.includes("section 379") || penalCodes.includes("section 392")) {
+      calculatedSeverity += 20;
+    }
+    
+    // Cap at 100%
+    setSeverity(Math.min(calculatedSeverity, 100));
+  };
   
   const handleSavePDF = () => {
     toast({
@@ -57,7 +92,7 @@ export function CasePrediction() {
       <div className="p-4 bg-justice-lightBlue/30 rounded-md mb-5">
         <h3 className="font-medium text-justice-navy mb-2">Case Severity Analysis:</h3>
         <div className="w-full bg-gray-200 rounded-full h-2.5 mb-4">
-          <div className="bg-justice-crimson h-2.5 rounded-full" style={{ width: query.length % 3 === 0 ? "75%" : query.length % 2 === 0 ? "40%" : "60%" }}></div>
+          <div className="bg-justice-crimson h-2.5 rounded-full" style={{ width: severity + "%" }}></div>
         </div>
         <div className="flex justify-between text-xs text-gray-500">
           <span>Minor</span>

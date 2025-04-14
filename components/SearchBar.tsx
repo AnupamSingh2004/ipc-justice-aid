@@ -1,72 +1,78 @@
 "use client";
-
-import { useState } from "react";
-// Remove direct useNavigate import and use alternative approach
-import { useRouter } from "next/navigation"; // For Next.js
-// Or if using react-router with proper context
-// import { useNavigate } from "react-router-dom";
-import { Search } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { useState, useEffect } from "react";
+import { Search, Loader2 } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { toast } from "@/components/ui/use-toast";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
+import { useTranslation } from "@/lib/i18n/LanguageContext";
 
 interface SearchBarProps {
+  onSearch: (query: string) => void | Promise<void>;
+  initialValue?: string;
   large?: boolean;
   placeholder?: string;
+  loading?: boolean;
 }
 
-export function SearchBar({ large = false, placeholder = "Search for legal queries..." }: SearchBarProps) {
-  const [query, setQuery] = useState("");
-  // Use Next.js router instead
-  const router = useRouter();
-  // Or if you need to ensure Router context:
-  // const navigate = useNavigate();
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
+export function SearchBar({ 
+  onSearch, 
+  initialValue = "", 
+  large = false, 
+  placeholder,
+  loading = false
+}: SearchBarProps) {
+  const [query, setQuery] = useState(initialValue);
+  const { t } = useTranslation();
+  
+  // Update internal state when initialValue prop changes
+  useEffect(() => {
+    setQuery(initialValue);
+  }, [initialValue]);
+  
+  const defaultPlaceholder = t("search.placeholder") || "Search by legal scenario, IPC section, or keywords...";
+  
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault(); // Prevent form from causing page reload
     
-    if (!query.trim()) {
-      toast({
-        title: "Empty Search",
-        description: "Please enter a search query",
-        variant: "destructive",
-      });
-      return;
+    if (query.trim()) {
+      onSearch(query.trim());
     }
-    
-    // Store in local history
-    const history = JSON.parse(localStorage.getItem("searchHistory") || "[]");
-    const newSearch = {
-      id: Date.now(),
-      query: query.trim(),
-      timestamp: new Date().toISOString(),
-    };
-    
-    localStorage.setItem("searchHistory", JSON.stringify([newSearch, ...history].slice(0, 20)));
-    
-    // Use Next.js router.push instead of navigate
-    router.push(`/results?q=${encodeURIComponent(query.trim())}`);
-    // Or if using react-router with proper context:
-    // navigate(`/results?q=${encodeURIComponent(query.trim())}`);
   };
-
+  
   return (
-    <form onSubmit={handleSearch} className={`search-container ${large ? "mt-8 mb-12" : "my-4"}`}>
-      <div className="relative w-full flex items-center">
+    <form onSubmit={handleSubmit} className="w-full">
+      <div className={cn(
+        "flex items-center rounded-lg border border-gray-200 dark:border-gray-700 overflow-hidden",
+        "bg-white dark:bg-gray-800 shadow-sm transition-all",
+        large ? "h-14" : "h-10"
+      )}>
         <Input
           type="text"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder={placeholder}
-          className={`pr-12 pl-4 ${large ? "h-14 text-lg" : "h-10"} w-full rounded-md border border-input shadow-sm focus-visible:ring-2`}
+          placeholder={placeholder || defaultPlaceholder}
+          className={cn(
+            "flex-1 border-0 h-full focus:ring-0",
+            "bg-transparent focus-visible:ring-0 focus-visible:ring-offset-0",
+            large && "text-lg"
+          )}
+          disabled={loading}
         />
         <Button 
-          type="submit"
+          type="submit" 
+          variant="ghost" 
           size={large ? "lg" : "default"}
-          className="absolute right-0 rounded-l-none"
+          className={cn(
+            "px-3 text-gray-400 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-700",
+            "border-l border-gray-200 dark:border-gray-700 rounded-none h-full min-w-[56px]"
+          )}
+          disabled={loading}
         >
-          <Search className="mr-2" size={18} />
-          Search
+          {loading ? (
+            <Loader2 className="h-5 w-5 animate-spin" />
+          ) : (
+            <Search className="h-5 w-5" />
+          )}
         </Button>
       </div>
     </form>

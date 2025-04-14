@@ -27,12 +27,13 @@ export async function POST(req: Request) {
 4. How it applies to this specific case
 5. Potential penalties
 
-Format each section clearly as "Section XXX: Title - Description" and make sure to separate each section with a clear delimiter.
-Ensure each section follows the format:
+Format each section clearly as:
 Section [NUMBER]: [TITLE] - [SHORT DESCRIPTION]
 Explanation: [DETAILED DESCRIPTION]
 Application to this case: [CASE APPLICATION]
 Penalties: [PENALTIES INFORMATION]
+
+Provide at least 2-3 relevant IPC sections.
 
 Case details: ${prompt}`,
           stream: false,
@@ -96,27 +97,10 @@ Case details: ${prompt}`,
       );
     }
 
-    // Process and structure the penal code data for better parsing
-    const formattedPenalCodes = penalCodesData.response
-      .split(/Section \d+/)
-      .filter((item: unknown): item is string => Boolean(item))
-      .map((section: string) => {
-        return "Section " + section.trim();
-      })
-      .join("\n\n");
-
-    // Process and structure the defense data for better parsing
-    const formattedDefense = defenseData.response
-      .split(/Section \d+/)
-      .filter((item: unknown): item is string => Boolean(item))
-      .map((section: string) => {
-        return "Section " + section.trim();
-      })
-      .join("\n\n");
-
+    // For better formatting, we'll now return the raw text responses
     return NextResponse.json({
-      penalCodes: formattedPenalCodes,
-      defense: formattedDefense,
+      penalCodes: penalCodesData.response,
+      defense: defenseData.response,
     });
   } catch (error) {
     console.error("Error calling Ollama:", error);

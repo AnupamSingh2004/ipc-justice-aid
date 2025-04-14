@@ -1,4 +1,3 @@
-
 export interface Translations {
   [key: string]: {
     [key: string]: string;
@@ -84,13 +83,24 @@ export const translations: Translations = {
     "auth.name": "Full Name",
     "auth.forgotPassword": "Forgot password?",
     "auth.signIn": "Sign In",
+    "auth.signOut": "Sign Out",
     "auth.success": "Success",
     "auth.error": "Error",
-    "auth.loginSuccess": "You have successfully logged in",
-    "auth.registerSuccess": "You have successfully registered",
     "auth.passwordMismatch": "Passwords do not match",
+    "auth.registerSuccess": "You have successfully registered",
+    "auth.loginSuccess": "You have successfully logged in",
+    "auth.logoutSuccess": "You have successfully logged out",
+    "auth.logout": "Log out",
+    "auth.loginError": "Login failed. Please check your credentials.",
     "theme.toggle": "Toggle theme",
 
+    //Profile
+    "profile.title": "Profile",
+    "profile.description": "View and edit your profile information.",
+    "profile.name": "Name",
+    "profile.email": "Email",
+    "profile.updateProfile": "Update Profile",
+    "profile.success": "Profile updated successfully!", 
     //About
     "about.title": "About IPC Justice Aid",
     "about.description": "Learn more about our mission and team.",
@@ -178,6 +188,8 @@ export const translations: Translations = {
     //Auth
     "auth.welcome": "स्वागत है",
     "auth.description": "अपने खाते में साइन इन करें या नया खाता बनाएं",
+    "auth.signOut": "साइन आउट करें",
+
     "auth.login": "लॉगिन",
     "auth.register": "रजिस्टर",
     "auth.email": "ईमेल",
@@ -192,6 +204,14 @@ export const translations: Translations = {
     "auth.registerSuccess": "आपने सफलतापूर्वक पंजीकरण कर लिया है",
     "auth.passwordMismatch": "पासवर्ड मेल नहीं खाते",
     "theme.toggle": "थीम बदलें",
+
+    "profile.title": "प्रोफ़ाइल",
+"profile.description": "अपनी प्रोफ़ाइल जानकारी देखें और संपादित करें।",
+"profile.name": "नाम",
+"profile.email": "ईमेल",
+"profile.updateProfile": "प्रोफ़ाइल अपडेट करें",
+"profile.success": "प्रोफ़ाइल सफलतापूर्वक अपडेट की गई!",
+
   },
 
   // Marathi
@@ -208,6 +228,13 @@ export const translations: Translations = {
     "app.submit": "सबमिट करा",
     "app.thankYou": "धन्यवाद!",
     "app.feedbackReceived": "आम्ही तुमच्या अभिप्रायाचे कौतुक करतो.",
+
+    "profile.title": "प्रोफाइल",
+"profile.description": "आपली प्रोफाइल माहिती पहा आणि संपादित करा.",
+"profile.name": "नाव",
+"profile.email": "ईमेल",
+"profile.updateProfile": "प्रोफाइल अपडेट करा",
+"profile.success": "प्रोफाइल यशस्वीरित्या अपडेट केली!",
 
     //Index
     "index.searchBarPlaceholder": "कायदे, लेख आणि अधिक शोधा...",
@@ -279,6 +306,8 @@ export const translations: Translations = {
     "auth.name": "पूर्ण नाव",
     "auth.forgotPassword": "पासवर्ड विसरलात?",
     "auth.signIn": "साइन इन करा",
+    "auth.signOut": "साइन आऊट करा"
+,
     "auth.success": "यशस्वी",
     "auth.error": "त्रुटी",
     "auth.loginSuccess": "आपण यशस्वीरित्या लॉग इन केले आहे",
@@ -302,6 +331,13 @@ export const translations: Translations = {
     "app.submit": "సమర్పించండి",
     "app.thankYou": "ధన్యవాదాలు!",
     "app.feedbackReceived": "మీ అభిప్రాయాన్ని మేము అభినందిస్తున్నాము.",
+
+    "profile.title": "ప్రొఫైల్",
+"profile.description": "మీ ప్రొఫైల్ సమాచారాన్ని చూడండి మరియు సవరించండి.",
+"profile.name": "పేరు",
+"profile.email": "ఇమెయిల్",
+"profile.updateProfile": "ప్రొఫైల్ నవీకరించండి",
+"profile.success": "ప్రొఫైల్ విజయవంతంగా నవీకరించబడింది!",
 
     //Index
     "index.searchBarPlaceholder": "చట్టాలు, కథనాలు మరియు మరిన్నింటి కోసం శోధించండి...",
@@ -373,6 +409,8 @@ export const translations: Translations = {
     "auth.name": "పూర్తి పేరు",
     "auth.forgotPassword": "పాస్వర్డ్ మర్చిపోయారా?",
     "auth.signIn": "సైన్ ఇన్",
+    "auth.signOut": "సైన్ అవుట్ చేయండి"
+,
     "auth.success": "విజయం",
     "auth.error": "లోపం",
     "auth.loginSuccess": "మీరు విజయవంతంగా లాగిన్ అయ్యారు",
@@ -396,6 +434,14 @@ export const translations: Translations = {
     "app.submit": "સબમિટ કરો",
     "app.thankYou": "આભાર!",
     "app.feedbackReceived": "અમે તમારા પ્રતિસાદની પ્રશંસા કરીએ છીએ.",
+
+
+    "profile.title": "પ્રોફાઇલ",
+"profile.description": "તમારી પ્રોફાઇલ માહિતી જુઓ અને સંપાદિત કરો.",
+"profile.name": "નામ",
+"profile.email": "ઇમેલ",
+"profile.updateProfile": "પ્રોફાઇલ અપડેટ કરો",
+"profile.success": "પ્રોફાઇલ સફળતાપૂર્વક અપડેટ થઈ!",
 
     //Index
     "index.searchBarPlaceholder": "કાયદાઓ, લેખો અને વધુ માટે શોધો...",
@@ -467,6 +513,7 @@ export const translations: Translations = {
     "auth.name": "પૂરું નામ",
     "auth.forgotPassword": "પાસવર્ડ ભૂલી ગયા?",
     "auth.signIn": "સાઇન ઇન કરો",
+    "auth.signOut": "સાઇન આઉટ કરો",
     "auth.success": "સફળતા",
     "auth.error": "ભૂલ",
     "auth.loginSuccess": "તમે સફળતાપૂર્વક લોગિન કર્યું છે",
@@ -490,6 +537,13 @@ export const translations: Translations = {
     "app.submit": "জমা দিন",
     "app.thankYou": "ধন্যবাদ!",
     "app.feedbackReceived": "আমরা আপনার মতামত প্রশংসা করি।",
+
+    "profile.title": "প্রোফাইল",
+"profile.description": "আপনার প্রোফাইল তথ্য দেখুন এবং সম্পাদনা করুন।",
+"profile.name": "নাম",
+"profile.email": "ইমেইল",
+"profile.updateProfile": "প্রোফাইল আপডেট করুন",
+"profile.success": "প্রোফাইল সফলভাবে আপডেট হয়েছে!",
 
     //index
     "index.searchBarPlaceholder": "আইন, প্রবন্ধ, এবং আরো জন্য অনুসন্ধান করুন...",
@@ -561,6 +615,7 @@ export const translations: Translations = {
     "auth.name": "পুরো নাম",
     "auth.forgotPassword": "পাসওয়ার্ড ভুলে গেছেন?",
     "auth.signIn": "সাইন ইন করুন",
+    "auth.signOut": "সাইন আউট করুন",
     "auth.success": "সফলতা",
     "auth.error": "ত্রুটি",
     "auth.loginSuccess": "আপনি সফলভাবে লগইন করেছেন",
@@ -585,6 +640,14 @@ export const translations: Translations = {
     "app.thankYou": "நன்றி!",
     "app.feedbackReceived": "உங்கள் கருத்தை நாங்கள் பாராட்டுகிறோம்.",
 
+    
+    
+    "profile.title": "சுயவிவரம்",
+"profile.description": "உங்கள் சுயவிவர தகவலைப் பார்க்கவும் திருத்தவும்.",
+"profile.name": "பெயர்",
+"profile.email": "மின்னஞ்சல்",
+"profile.updateProfile": "சுயவிவரத்தைப் புதுப்பிக்கவும்",
+"profile.success": "சுயவிவரம் வெற்றிகரமாக புதுப்பிக்கப்பட்டது!",
     
     // Navigation
     "nav.home": "முகப்பு",
@@ -644,6 +707,7 @@ export const translations: Translations = {
     "auth.name": "முழு பெயர்",
     "auth.forgotPassword": "கடவுச்சொல் மறந்துவிட்டதா?",
     "auth.signIn": "உள்நுழைக",
+    "auth.signOut": "வெளியேறு",
     "auth.success": "வெற்றி",
     "auth.error": "பிழை",
     "auth.loginSuccess": "நீங்கள் வெற்றிகரமாக உள்நுழைந்துள்ளீர்கள்",
@@ -681,6 +745,13 @@ export const translations: Translations = {
     "app.submit": "জমাকৰক",
     "app.thankYou": "ধন্যবাদ!",
     "app.feedbackReceived": "আমি আপোনাৰ মতামতৰ শলাগ লওঁ।",
+
+    "profile.title": "প্ৰ’ফাইল",
+"profile.description": "আপোনাৰ প্ৰ’ফাইল তথ্য চাওক আৰু সম্পাদনা কৰক।",
+"profile.name": "নাম",
+"profile.email": "ইমেইল",
+"profile.updateProfile": "প্ৰ’ফাইল আপডেট কৰক",
+"profile.success": "প্ৰ’ফাইল সফলভাৱে আপডেট হৈছে!",
 
     //Index
     "index.searchBarPlaceholder": "আইন, প্ৰবন্ধ, আৰু অধিকৰ বাবে সন্ধান কৰক...",
@@ -754,6 +825,7 @@ export const translations: Translations = {
     "auth.name": "সম্পূৰ্ণ নাম",
     "auth.forgotPassword": "পাছৱৰ্ড পাহৰি গৈছে?",
     "auth.signIn": "ছাইন ইন কৰক",
+    "auth.signOut": "ছাইন আউট কৰক",
     "auth.success": "সফলতা",
     "auth.error": "ত্ৰুটি",
     "auth.loginSuccess": "আপুনি সফলতাৰে লগিন কৰিছে",
@@ -780,6 +852,13 @@ export const translations: Translations = {
     "app.submit": "ਸਬਮਿਟ ਕਰੋ",
     "app.thankYou": "ਧੰਨਵਾਦ!",
     "app.feedbackReceived": "ਅਸੀਂ ਤੁਹਾਡੀ ਫੀਡਬੈਕ ਦੀ ਸ਼ਲਾਘਾ ਕਰਦੇ ਹਾਂ।",
+
+    "profile.title": "ਪ੍ਰੋਫਾਈਲ",
+"profile.description": "ਆਪਣੀ ਪ੍ਰੋਫਾਈਲ ਜਾਣਕਾਰੀ ਵੇਖੋ ਅਤੇ ਸੋਧੋ।",
+"profile.name": "ਨਾਮ",
+"profile.email": "ਈਮੇਲ",
+"profile.updateProfile": "ਪ੍ਰੋਫਾਈਲ ਅੱਪਡੇਟ ਕਰੋ",
+"profile.success": "ਪ੍ਰੋਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਅੱਪਡੇਟ ਹੋ ਗਈ!",
 
     //Index
     "index.searchBarPlaceholder": "ਕਾਨੂੰਨਾਂ, ਲੇਖਾਂ ਅਤੇ ਹੋਰ ਲਈ ਖੋਜ ਕਰੋ...",
@@ -845,6 +924,7 @@ export const translations: Translations = {
     "auth.name": "ਪੂਰਾ ਨਾਮ",
     "auth.forgotPassword": "ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?",
     "auth.signIn": "ਸਾਈਨ ਇਨ",
+    "auth.signOut": "ਸਾਈਨ ਆਉਟ",
     "auth.success": "ਸਫਲਤਾ",
     "auth.error": "ਗਲਤੀ",
     "auth.loginSuccess": "ਤੁਸੀਂ ਸਫਲਤਾਪੂਰਵਕ ਲੌਗਿਨ ਕਰ ਲਿਆ ਹੈ",
